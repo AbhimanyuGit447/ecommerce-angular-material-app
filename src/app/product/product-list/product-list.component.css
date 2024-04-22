@@ -1,0 +1,21 @@
+.all-cards {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  flex-wrap: wrap;
+  padding: 1rem;
+}
+
+.product-card {
+  display: flex;
+  max-width: 150px;
+
+}
+
+mat-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+
+  transition: transform .2s;
+
+}
