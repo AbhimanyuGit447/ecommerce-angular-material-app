@@ -6,9 +6,26 @@
     <h2 style="margin-left: 1rem;" >Our Latest Collection</h2>
   </div>
 
+  <div style="display: flex; flex-direction: row; justify-content:flex-start; gap: 1rem; ">
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($event)" placeholder="search" >
+    </mat-form-field>
+
+
+
+    <mat-form-field>
+     <mat-select (selectionChange)="sortProducts($event.value)" placeholder="sort" >
+      <mat-option value="priceLowHigh" >Price : Low to High</mat-option>
+       <mat-option value="priceHighLow" >Price : High to Low</mat-option>
+     </mat-select>
+    </mat-form-field>
+  </div>
+
+
   <div class="all-cards">
-    <div *ngFor="let product of products">
-      <mat-card class="product-card">
+    <div *ngFor="let product of filteredProducts">
+      <mat-card class="product-card" (click)="addToCart(product)" >
         <img mat-card-image src="assets/images/{{product.image_url}}" alt="Photo of a Shiba Inu">
         <mat-card-content>
           <mat-card-title>{{product.name}}</mat-card-title>
